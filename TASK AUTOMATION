@@ -1,0 +1,54 @@
+import os
+import shutil
+from datetime import datetime
+
+def organize_files(folder_path):
+    for file_name in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, file_name)
+        if os.path.isfile(file_path):
+            # Organize by file type (extension)
+            file_type = file_name.split('.')[-1]
+            target_folder = os.path.join(folder_path, file_type)
+            os.makedirs(target_folder, exist_ok=True)
+            shutil.move(file_path, target_folder)
+            print(f'Moved {file_name} to {target_folder}')
+
+# Call the function
+organize_files(r'C:\Users\Arnav\Desktop
+
+===========================================================================CLEAR DATA & CACHE======================================================================================================
+import pandas as pd
+
+def clean_data(file_path):
+    df = pd.read_csv(file_path)
+    # Drop duplicates
+    df.drop_duplicates(inplace=True)
+    # Fill missing values
+    df.fillna("Unknown", inplace=True)
+    # Standardize text format (e.g., lowercase)
+    df['column_name'] = df['column_name'].str.lower()
+    df.to_csv('cleaned_data.csv', index=False)
+    print("Data cleaned and saved to 'cleaned_data.csv'.")
+
+# Call the function
+clean_data('raw_data.csv')
+
+2) CLEAR CACHE
+
+import os
+import shutil
+
+def clear_cache(cache_dir):
+    for file_name in os.listdir(cache_dir):
+        file_path = os.path.join(cache_dir, file_name)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+            print(f'Deleted {file_name} from cache.')
+
+# Example usage
+clear_cache(r'C:\Users\Arnav\Desktop\raw data')
+
+
+
+
+
