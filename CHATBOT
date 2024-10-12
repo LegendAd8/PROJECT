@@ -1,0 +1,17 @@
+import nltk
+from nltk.chat.util import Chat, reflections
+
+# Define pairs for the chatbot (input patterns and their responses)
+pairs = [
+    ['hi|hello', ['Hello!', 'Hi there!']],
+    ['how are you', ['I am fine, thank you!', 'I am doing well!']],
+    ['what is your name', ['My name is Chatbot!']],
+    ['quit', ['Goodbye!']],
+]
+
+# Create the chatbot
+chatbot = Chat(pairs, reflections)
+
+# Start the conversation
+print("Welcome to the chatbot. Type 'quit' to exit.")
+chatbot.converse()
